@@ -11,6 +11,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Creatures}/>
             <Route path="/:id" component={SingleCreature}/>
+            
           </Switch>
         </div>
       </Router>

@@ -30,8 +30,11 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const creatureId = req.params.id
-    const updatedCreature = req.body
-    const savedCreature = await Creature.findByIdAndUpdate(creatureId, updatedCreature)
+    // changed this to grab the entire creature objects
+    const updatedCreature = req.body.creature
+    console.log(updatedCreature)
+    const savedCreature = await Creature.findByIdAndUpdate(creatureId, updatedCreature, {new: true} )
+    console.log(savedCreature)
     res.json(savedCreature)
   } catch (err) {
     console.log(err)
